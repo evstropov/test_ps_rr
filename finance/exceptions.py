@@ -1,0 +1,2 @@
+class PaymentAlreadyProcessedError(Exception):
+    pass
