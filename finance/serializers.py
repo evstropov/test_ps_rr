@@ -16,7 +16,7 @@ class BankPaymentWebhookSerializer(serializers.Serializer):
 
     def validate_payer_inn(self, value):
         try:
-            self._wallet_id = Organization.objects.filter(id=value).values_list('wallet_id', flat=True)
+            self._wallet_id = Organization.objects.filter(tin=value).values_list('wallet_id', flat=True)
         except Organization.DoesNotExist:
             raise serializers.ValidationError("Organization does not exist")
 
